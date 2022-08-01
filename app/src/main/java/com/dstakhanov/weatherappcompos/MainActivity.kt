@@ -7,8 +7,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
@@ -20,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
-import com.dstakhanov.weatherappcompos.ui.theme.WeatherAppComposTheme
+import com.dstakhanov.weatherappcompos.ui.MainScreen
 import org.json.JSONObject
 
 const val API_KEY = "012c748818fd41bbbdf112239221805"
@@ -29,15 +27,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            WeatherAppComposTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    GetTemperature("London", this)
-                }
-            }
+           MainScreen()
         }
     }
 }
