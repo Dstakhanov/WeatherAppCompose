@@ -2,6 +2,7 @@ package com.dstakhanov.weatherappcompos.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -145,7 +146,8 @@ fun TabLayout() {
                    Modifier.pagerTabIndicatorOffset(pagerState, pos)
                    )
             },
-            backgroundColor = BlueLight
+            backgroundColor = BlueLight,
+            contentColor = Color.White
         ) {
             tabList.forEachIndexed { index, text ->
                 Tab(
@@ -165,7 +167,15 @@ fun TabLayout() {
             count = tabList.size,
             state = pagerState,
             modifier = Modifier.weight(1.0f)
-        ){ index ->
+        ){
+                index ->
+            LazyColumn(
+                modifier = Modifier.fillMaxSize()
+            ){
+                items(15){
+                    ListItem()
+                }
+            }
 
         }
     }
